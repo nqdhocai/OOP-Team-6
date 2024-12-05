@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="root-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: EEE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane"  fx:controller="core.NavbarController">
+    <left>
+        <VBox id="navbar" alignment="CENTER" prefHeight="400.0" prefWidth="40.0" style="-fx-background-color: #888; -fx-background-radius: 0 10 10 0;" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets right="5.0" />
+            </BorderPane.margin>
+            <children>
+                <Button mnemonicParsing="false" style="-fx-background-color: 000;">
+                    <graphic>
+                        <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/icon/dashboard_icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button id="dashboard-view-button" mnemonicParsing="false" style="-fx-background-color: 000;" onAction="#showDashboard">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/icon/home_icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button id="search-view-button" mnemonicParsing="false" style="-fx-background-color: 000;" onAction="#showSearchView">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../assets/icon/search_view_icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <Label>"steadfast"</Label>
+    </center>
+</BorderPane>

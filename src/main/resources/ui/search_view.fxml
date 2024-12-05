@@ -7,301 +7,262 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="root-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: EEE;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <VBox id="navbar" alignment="CENTER" prefHeight="400.0" prefWidth="40.0" style="-fx-background-color: #888; -fx-background-radius: 0 10 10 0;" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets right="5.0" />
-         </BorderPane.margin>
-         <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: 000;">
-               <graphic>
-                  <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icon/dashboard_icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="dashboard-view-button" mnemonicParsing="false" style="-fx-background-color: 000;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icon/home_icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button id="search-view-button" mnemonicParsing="false" style="-fx-background-color: 000;">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icon/search_view_icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #EEE;" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="400.0" prefWidth="360.0">
-               <children>
-                  <HBox id="search-bar" prefHeight="45.0" prefWidth="360.0" style="-fx-alignment: center;">
-                     <children>
-                        <HBox id="search-box" alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="300.0" style="-fx-border-color: #000; -fx-border-radius: 20;">
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/search_icon.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <TextField id="search-text-field" prefHeight="26.0" prefWidth="260.0" style="-fx-background-color: 000;" />
-                           </children>
-                        </HBox>
-                        <Button id="filter-button" mnemonicParsing="false" style="-fx-background-color: 0;">
-                           <graphic>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/filter_icon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <ScrollPane id="search-result-pane" hbarPolicy="NEVER" prefHeight="350.0" prefWidth="360.0" style="-fx-background-color: 0;">
-                     <content>
-                        <VBox id="result-list-box" prefHeight="500.0" prefWidth="350.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
-                                 <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../assets/icon/account_icon.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </graphic>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
-                                 <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../assets/icon/account_icon.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </graphic>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
-                                 <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../assets/icon/tweet_icon.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <Label prefHeight="20.0" prefWidth="200.0" text="Author (tweet)">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label prefWidth="100.0" text="Time Upload" />
-                                       </children>
-                                    </HBox>
-                                 </graphic>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
-                                 <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../assets/icon/account_icon.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </graphic>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
-                                 <graphic>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../assets/icon/account_icon.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="5.0" right="5.0" />
-                                             </HBox.margin>
-                                          </ImageView>
-                                          <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                 </graphic>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
-               </children>
+<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <HBox prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #EEE;" BorderPane.alignment="CENTER">
+        <children>
+            <VBox prefHeight="500.0" prefWidth="400.0">
+                <children>
+                    <HBox prefHeight="45.0" prefWidth="381.0" style="-fx-alignment: center;">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="300.0" style="-fx-border-color: #000; -fx-border-radius: 20;">
+                                <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                </HBox.margin>
+                                <children>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/icon/search_icon.png" />
+                                        </image>
+                                        <HBox.margin>
+                                            <Insets left="10.0" />
+                                        </HBox.margin>
+                                    </ImageView>
+                                    <TextField prefHeight="26.0" prefWidth="260.0" style="-fx-background-color: 000;" />
+                                </children>
+                            </HBox>
+                            <Button mnemonicParsing="false" style="-fx-background-color: 0;">
+                                <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../assets/icon/filter_icon.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children>
+                    </HBox>
+                    <ScrollPane hbarPolicy="NEVER" prefHeight="450.0" prefWidth="381.0" style="-fx-background-color: 0;">
+                        <content>
+                            <VBox prefHeight="10000.0" prefWidth="380.0">
+                                <children>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                                <children>
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/icon/account_icon.png" />
+                                                        </image>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </ImageView>
+                                                    <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                        </HBox.margin>
+                                                    </Label>
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                                <children>
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/icon/account_icon.png" />
+                                                        </image>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </ImageView>
+                                                    <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                        </HBox.margin>
+                                                    </Label>
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                                <children>
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/icon/tweet_icon.png" />
+                                                        </image>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </ImageView>
+                                                    <Label prefHeight="20.0" prefWidth="200.0" text="Author (tweet)">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                        </HBox.margin>
+                                                    </Label>
+                                                    <Label prefWidth="100.0" text="Time Upload" />
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                                <children>
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/icon/account_icon.png" />
+                                                        </image>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </ImageView>
+                                                    <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                        </HBox.margin>
+                                                    </Label>
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                                <children>
+                                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@../assets/icon/account_icon.png" />
+                                                        </image>
+                                                        <HBox.margin>
+                                                            <Insets left="5.0" right="5.0" />
+                                                        </HBox.margin>
+                                                    </ImageView>
+                                                    <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                        <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                        </HBox.margin>
+                                                    </Label>
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </VBox>
+                        </content>
+                    </ScrollPane>
+                </children>
             </VBox>
-         </children>
-      </HBox>
-   </center>
-   <right>
-      <VBox id="top-kol-box" prefHeight="400.0" prefWidth="190.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #555; -fx-border-radius: 10;">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-               <children>
-                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="110.0" text="Top KOLs">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/account_icon.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/account_icon.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/account_icon.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
-                     <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/icon/account_icon.png" />
-                                 </image>
-                                 <HBox.margin>
-                                    <Insets left="5.0" right="5.0" />
-                                 </HBox.margin>
-                              </ImageView>
-                              <Label prefHeight="20.0" prefWidth="200.0" text="Username">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </graphic>
-                  </Button>
-               </children>
+            <VBox prefHeight="500.0" prefWidth="288.0">
+                <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #555; -fx-border-radius: 10;">
+                        <VBox.margin>
+                            <Insets bottom="5.0" left="35.0" right="35.0" top="5.0" />
+                        </VBox.margin>
+                        <children>
+                            <Label alignment="CENTER" prefHeight="41.0" prefWidth="110.0" text="Top KOLs">
+                                <font>
+                                    <Font size="18.0" />
+                                </font>
+                            </Label>
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                        <children>
+                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/icon/account_icon.png" />
+                                                </image>
+                                                <HBox.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                </HBox.margin>
+                                            </ImageView>
+                                            <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                <HBox.margin>
+                                                    <Insets left="10.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                        <children>
+                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/icon/account_icon.png" />
+                                                </image>
+                                                <HBox.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                </HBox.margin>
+                                            </ImageView>
+                                            <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                <HBox.margin>
+                                                    <Insets left="10.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                        <children>
+                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/icon/account_icon.png" />
+                                                </image>
+                                                <HBox.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                </HBox.margin>
+                                            </ImageView>
+                                            <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                <HBox.margin>
+                                                    <Insets left="10.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
+                                        <children>
+                                            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@../assets/icon/account_icon.png" />
+                                                </image>
+                                                <HBox.margin>
+                                                    <Insets left="5.0" right="5.0" />
+                                                </HBox.margin>
+                                            </ImageView>
+                                            <Label prefHeight="20.0" prefWidth="200.0" text="Username">
+                                                <HBox.margin>
+                                                    <Insets left="10.0" />
+                                                </HBox.margin>
+                                            </Label>
+                                        </children>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                        </children>
+                    </VBox>
+                </children>
             </VBox>
-         </children>
-      </VBox>
-   </right>
-</BorderPane>
+        </children>
+    </HBox>
+</AnchorPane>

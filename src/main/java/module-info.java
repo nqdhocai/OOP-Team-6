@@ -4,9 +4,8 @@ module app {
     requires gs.core;
     requires gs.ui.javafx;
 
-    opens app to javafx.fxml;
-    exports ui;
+    opens core to javafx.fxml;
+
     exports core;
-    exports models;
-    exports crawl;
+    exports ui;
 }
