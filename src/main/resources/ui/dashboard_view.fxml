@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:id="dashboardPane" fx:controller="controller.DashboardController">
       <VBox id="page-view" prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane id="view-title" prefHeight="50.0" prefWidth="500.0">
@@ -32,7 +32,7 @@
                            <children>
                               <VBox id="total-container" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <Label id="total-user-label" prefHeight="30.0" prefWidth="100.0" style="-fx-alignment: center;" text="2000" textAlignment="CENTER" textFill="#55aded">
+                                    <Label fx:id="totalUserLabel" id="total-user-label" prefHeight="30.0" prefWidth="100.0" style="-fx-alignment: center;" text="2000" textAlignment="CENTER" textFill="#55aded">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
@@ -45,7 +45,7 @@
                               </VBox>
                               <VBox id="total-container" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <Label id="total-tweet-label" prefHeight="30.0" prefWidth="100.0" style="-fx-alignment: center;" text="2000" textAlignment="CENTER" textFill="#55aded">
+                                    <Label fx:id="totalTweetLabel" id="total-tweet-label" prefHeight="30.0" prefWidth="100.0" style="-fx-alignment: center;" text="2000" textAlignment="CENTER" textFill="#55aded">
                                        <font>
                                           <Font size="24.0" />
                                        </font>
