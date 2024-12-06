@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -16,27 +15,38 @@ public class Nodes {
     public List<Tweet> getTweets() { return tweets; }
     public void setTweets(List<Tweet> tweets) { this.tweets = tweets; }
 
-    // Constructor with load functionality
+    // Constructor không tham số
+    public Nodes() {}
+
+    // Constructor với dữ liệu được nạp từ file JSON
     public Nodes(String filePath) {
         loadDataFromFile(filePath);
     }
 
-    public Nodes(){
-        String filePath = "src/main/resources/data/raw_data.json";
-        loadDataFromFile(filePath);
-    }
-
-    // Method to load data from JSON file
+    // Phương thức để load dữ liệu từ file JSON
     private void loadDataFromFile(String filePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            // Load JSON data into the Nodes object
+            // Load dữ liệu JSON vào đối tượng Nodes
             Nodes nodes = objectMapper.readValue(new File(filePath), Nodes.class);
             this.users = nodes.getUsers();
             this.tweets = nodes.getTweets();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error loading data from file: " + filePath);
+        }
+    }
+
+    // Phương thức tĩnh để tải dữ liệu từ file nếu cần
+    public static Nodes loadFromFile(String filePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            // Đọc JSON từ file và trả về đối tượng Nodes
+            return objectMapper.readValue(new File(filePath), Nodes.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading data from file: " + filePath);
+            return null;
         }
     }
 }

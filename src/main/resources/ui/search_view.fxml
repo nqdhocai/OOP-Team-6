@@ -33,10 +33,10 @@
                                             <Insets left="10.0" />
                                         </HBox.margin>
                                     </ImageView>
-                                    <TextField prefHeight="26.0" prefWidth="260.0" style="-fx-background-color: 000;" />
+                                    <TextField prefHeight="26.0" prefWidth="260.0" style="-fx-background-color: #EEE;" />
                                 </children>
                             </HBox>
-                            <Button mnemonicParsing="false" style="-fx-background-color: 0;">
+                            <Button mnemonicParsing="false" style="-fx-background-color:  #EEE;">
                                 <graphic>
                                     <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                         <image>
@@ -47,11 +47,11 @@
                             </Button>
                         </children>
                     </HBox>
-                    <ScrollPane hbarPolicy="NEVER" prefHeight="450.0" prefWidth="381.0" style="-fx-background-color: 0;">
+                    <ScrollPane hbarPolicy="NEVER" prefHeight="450.0" prefWidth="381.0" style="-fx-background-color:  #EEE;">
                         <content>
                             <VBox prefHeight="10000.0" prefWidth="380.0">
                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color:  #EEE;">
                                         <graphic>
                                             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                                 <children>
@@ -72,7 +72,7 @@
                                             </HBox>
                                         </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: #EEE;">
                                         <graphic>
                                             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                                 <children>
@@ -93,7 +93,7 @@
                                             </HBox>
                                         </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: #EEE;">
                                         <graphic>
                                             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                                 <children>
@@ -115,7 +115,7 @@
                                             </HBox>
                                         </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: #EEE;">
                                         <graphic>
                                             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                                 <children>
@@ -136,7 +136,7 @@
                                             </HBox>
                                         </graphic>
                                     </Button>
-                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: 0;">
+                                    <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="350.0" style="-fx-background-color: #EEE;">
                                         <graphic>
                                             <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                                 <children>
@@ -175,7 +175,7 @@
                                     <Font size="18.0" />
                                 </font>
                             </Label>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEE;">
                                 <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                         <children>
@@ -196,7 +196,7 @@
                                     </HBox>
                                 </graphic>
                             </Button>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEE;">
                                 <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                         <children>
@@ -217,7 +217,7 @@
                                     </HBox>
                                 </graphic>
                             </Button>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEE;">
                                 <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                         <children>
@@ -238,7 +238,7 @@
                                     </HBox>
                                 </graphic>
                             </Button>
-                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: 0;">
+                            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #EEE;">
                                 <graphic>
                                     <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="200.0">
                                         <children>

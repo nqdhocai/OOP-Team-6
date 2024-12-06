@@ -19,7 +19,7 @@
                 <Insets right="5.0" />
             </BorderPane.margin>
             <children>
-                <Button mnemonicParsing="false" style="-fx-background-color: 000;">
+                <Button mnemonicParsing="false" style="-fx-background-color: #888;">
                     <graphic>
                         <ImageView accessibleRole="BUTTON" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -28,7 +28,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button id="dashboard-view-button" mnemonicParsing="false" style="-fx-background-color: 000;" onAction="#showDashboard">
+                <Button id="dashboard-view-button" mnemonicParsing="false" style="-fx-background-color: #888;" onAction="#showDashboard">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -37,7 +37,7 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button id="search-view-button" mnemonicParsing="false" style="-fx-background-color: 000;" onAction="#showSearchView">
+                <Button id="search-view-button" mnemonicParsing="false" style="-fx-background-color: #888;" onAction="#showSearchView">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                             <image>

@@ -8,13 +8,15 @@ public class User {
     private String bio;
     private String profileUrl;
     private String profileImageUrl;
-    private int followersCount;
-    private int followingCount;
+    private String followersCount;
+    private String followingCount;
     private int tweetCount;
     private double score;
     private List<String> edges;
     private List<String> tweets;
     private List<String> following;
+
+    public User(){}
 
     // Getters and Setters
     public String getUserId() {
@@ -57,19 +59,19 @@ public class User {
         this.profileImageUrl = profileImageUrl;
     }
 
-    public int getFollowersCount() {
+    public String getFollowersCount() {
         return followersCount;
     }
 
-    public void setFollowersCount(int followersCount) {
+    public void setFollowersCount(String followersCount) {
         this.followersCount = followersCount;
     }
 
-    public int getFollowingCount() {
+    public String getFollowingCount() {
         return followingCount;
     }
 
-    public void setFollowingCount(int followingCount) {
+    public void setFollowingCount(String followingCount) {
         this.followingCount = followingCount;
     }
 

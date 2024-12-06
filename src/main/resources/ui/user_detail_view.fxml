@@ -3,33 +3,28 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.DialogPane?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDetailController">
     <expandableContent>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
     </expandableContent>
    <content>
       <VBox prefHeight="300.0" prefWidth="480.0">
          <children>
-            <HBox prefHeight="165.0" prefWidth="460.0">
+            <HBox prefHeight="160.0" prefWidth="460.0">
                <children>
-                  <VBox prefHeight="119.0" prefWidth="161.0">
+                  <VBox prefHeight="119.0" prefWidth="150.0">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <AnchorPane fx:id="userAvtImage" pickOnBounds="true" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 50; -fx-border-radius: 50;">
                            <VBox.margin>
-                              <Insets left="5.0" />
+                              <Insets left="25.0" right="25.0" />
                            </VBox.margin>
-                           <image>
-                              <Image url="@../../Downloads/OOP-Team-6-main/OOP-Team-6-main/src/main/resources/assets/icon/account_icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label prefHeight="30.0" prefWidth="161.0" text="Username">
+                        </AnchorPane>
+                        <Label fx:id="usernameLabel" prefHeight="30.0" prefWidth="161.0" text="Username">
                            <VBox.margin>
                               <Insets left="5.0" />
                            </VBox.margin>
@@ -40,7 +35,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="22.0" prefWidth="176.0" text="\@Userid">
+                        <Label fx:id="useridLabel" prefHeight="22.0" prefWidth="176.0" text="\@Userid">
                            <padding>
                               <Insets left="5.0" top="5.0" />
                            </padding>
@@ -49,16 +44,16 @@
                   </VBox>
                </children>
             </HBox>
-            <Label prefHeight="100.0" prefWidth="480.0" text="User bio">
+            <Label fx:id="userBioLabel" alignment="TOP_LEFT" prefWidth="480.0" text="User bio">
                <VBox.margin>
-                  <Insets top="5.0" />
+                  <Insets left="5.0" top="5.0" />
                </VBox.margin>
             </Label>
             <HBox prefHeight="29.0" prefWidth="460.0">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="120.0">
+                  <HBox prefHeight="50.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="40.0" text="25.50K">
+                        <Label fx:id="userFollowingLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" text="25.50K">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -66,12 +61,15 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="20.0" prefWidth="70.0" text="Following" />
+                        <Label prefHeight="20.0" text="Following" />
                      </children>
+                     <HBox.margin>
+                        <Insets left="5.0" right="10.0" />
+                     </HBox.margin>
                   </HBox>
                   <HBox prefHeight="50.0" prefWidth="120.0">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="40.0" text="25.50K">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" text="25.50K" fx:id="userFollowerLabel">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -79,7 +77,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="20.0" prefWidth="70.0" text="Follwers" />
+                        <Label  prefHeight="20.0" text="Followers" />
                      </children>
                   </HBox>
                </children>
