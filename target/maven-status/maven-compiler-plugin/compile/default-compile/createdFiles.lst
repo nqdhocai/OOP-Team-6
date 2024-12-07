@@ -1,0 +1,13 @@
+core\NavbarController.class
+model\Tweet.class
+controller\DashboardController.class
+module-info.class
+ui\TableRowClickPopupApp.class
+model\User.class
+ui\TableRowClickPopupApp$User.class
+controller\NavbarController.class
+ui\DemoAllInFx.class
+ui\App.class
+model\UserRow.class
+model\Nodes.class
+core\DashboardDataController.class

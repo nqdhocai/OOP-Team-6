@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+   <content>
+      <VBox prefHeight="350.0" prefWidth="480.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="460.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-size: cover;" />
+                        <VBox prefHeight="127.0" prefWidth="161.0">
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="161.0" text="Username">
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="20.0" prefWidth="176.0" text="\@Userid">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Label prefHeight="30.0" prefWidth="460.0" text="#hashtags" textFill="#00a6ff">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="160.0" prefWidth="497.0" text="Content">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="30.0" prefWidth="460.0" text="12:07 AM · Aug 1, 2024">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </content>
+</DialogPane>

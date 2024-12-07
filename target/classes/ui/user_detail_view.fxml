@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<DialogPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <expandableContent>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
+    </expandableContent>
+   <content>
+      <VBox prefHeight="300.0" prefWidth="480.0">
+         <children>
+            <HBox prefHeight="165.0" prefWidth="460.0">
+               <children>
+                  <VBox prefHeight="119.0" prefWidth="161.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                           <image>
+                              <Image url="@../../Downloads/OOP-Team-6-main/OOP-Team-6-main/src/main/resources/assets/icon/account_icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="161.0" text="Username">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="22.0" prefWidth="176.0" text="\@Userid">
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label prefHeight="100.0" prefWidth="480.0" text="User bio">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="29.0" prefWidth="460.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="120.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="40.0" text="25.50K">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="20.0" prefWidth="70.0" text="Following" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="120.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="20.0" prefWidth="40.0" text="25.50K">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="20.0" prefWidth="70.0" text="Follwers" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</DialogPane>
