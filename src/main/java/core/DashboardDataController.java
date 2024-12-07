@@ -12,13 +12,16 @@ import java.util.Comparator;
 import java.util.List;
 
 public class DashboardDataController {
-    final private Nodes data = new Nodes();
+    private final String dataPath = String.valueOf(getClass().getResource("/data/raw_data.json").getPath());
+
+    final private Nodes data = new Nodes(dataPath);
     final private List<User> users = data.getUsers();
     final private List<Tweet> tweets = data.getTweets();
 
     public DashboardDataController() {
+        if (!users.isEmpty()) {
         users.sort(Comparator.comparingDouble(User::getScore).reversed());
-        users.sort(Comparator.comparingDouble(User::getScore).reversed());
+        }
     }
 
     // Method to get the total number of users
@@ -36,12 +39,8 @@ public class DashboardDataController {
         return getTotalUsers() + getTotalTweets();
     }
 
-    public ObservableList<UserRow> getUserRows() {
-        List<UserRow> userRows = new ArrayList<UserRow>();
-        for (User user : users) {
-            userRows.add(new UserRow(user.getUsername(), user.getScore()));
-        }
-        return FXCollections.observableList(userRows);
+    public ObservableList<User> getUserRows() {
+        return FXCollections.observableList(users);
     }
 
     public List<User> getUsers() {return this.users;}

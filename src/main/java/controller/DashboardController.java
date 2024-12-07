@@ -1,19 +1,21 @@
 package controller;
 
 import core.DashboardDataController;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import model.UserRow;
-import ui.TableRowClickPopupApp;
+import model.User;
 
+import java.io.IOException;
 import java.util.Comparator;
 
 
 public class DashboardController {
     private DashboardDataController dashboardDataController = new DashboardDataController();
+    private UserDetailController userDetailController = new UserDetailController();
 
     @FXML
     private AnchorPane dashboardPane;
@@ -48,20 +50,41 @@ public class DashboardController {
     }
 
     public void updateUserRankingTable(){
-        TableView<UserRow> tableView = new TableView<>();
+        TableView<User> tableView = new TableView<>();
         tableView.setColumnResizePolicy(TableView.UNCONSTRAINED_RESIZE_POLICY); // Vô hiệu hóa resize
 
         // Tạo cột Username
-        TableColumn<UserRow, String> usernameColumn = new TableColumn<>("Username");
-        usernameColumn.setCellValueFactory(cellData -> cellData.getValue().usernameProperty());
+        TableColumn<User, String> usernameColumn = new TableColumn<>("Username");
+        usernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getUsername()));
         usernameColumn.setPrefWidth(200);
 
         // Tạo cột Score
-        TableColumn<UserRow, Double> scoreColumn = new TableColumn<>("Score");
-        scoreColumn.setCellValueFactory(cellData -> cellData.getValue().scoreProperty().asObject());
+        TableColumn<User, Double> scoreColumn = new TableColumn<>("Score");
+        scoreColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getScore()).asObject());
         scoreColumn.setStyle("-fx-alignment: CENTER;");
         scoreColumn.setComparator(Comparator.naturalOrder());
         scoreColumn.setPrefWidth(48);
+
+        tableView.setRowFactory(tv -> {
+            TableRow<User> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (!row.isEmpty() && event.getClickCount() == 1) { // Single click
+                    User clickedUser = row.getItem();
+                    try {
+                        userDetailController.showUserDetail(clickedUser);
+                    } catch (Exception e) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("User Information");
+                        alert.setHeaderText(null);  // Không cần tiêu đề cho phần header
+                        alert.setContentText("User information not found!");  // Nội dung thông báo
+
+                        // Hiển thị hộp thoại
+                        alert.showAndWait();
+                    }
+                }
+            });
+            return row;
+        });
 
         // Thêm cột vào TableView
         tableView.getColumns().addAll(usernameColumn, scoreColumn);

@@ -22,7 +22,7 @@
                         <AnchorPane prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-border-radius: 25; -fx-background-size: cover;" />
                         <VBox prefHeight="127.0" prefWidth="161.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="161.0" text="Username">
+                              <Label prefHeight="30.0" prefWidth="161.0" text="Username" fx:id="userName">
                                  <VBox.margin>
                                     <Insets left="5.0" />
                                  </VBox.margin>
@@ -33,7 +33,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label prefHeight="20.0" prefWidth="176.0" text="\@Userid">
+                              <Label prefHeight="20.0" prefWidth="176.0" text="\@Userid" fx:id="userID">
                                  <padding>
                                     <Insets left="5.0" />
                                  </padding>
@@ -44,17 +44,17 @@
                   </HBox>
                </children>
             </HBox>
-            <Label prefHeight="30.0" prefWidth="460.0" text="#hashtags" textFill="#00a6ff">
+            <Label prefHeight="30.0" prefWidth="460.0" text="#hashtags" textFill="#00a6ff" fx:id="hashtagsLabel">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="160.0" prefWidth="497.0" text="Content">
+            <Label prefHeight="160.0" prefWidth="497.0" text="Content" fx:id="contentLabel">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="30.0" prefWidth="460.0" text="12:07 AM · Aug 1, 2024">
+            <Label prefHeight="30.0" prefWidth="460.0" text="12:07 AM · Aug 1, 2024" fx:id="uploadTimeLabel">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>

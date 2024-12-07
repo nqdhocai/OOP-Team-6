@@ -16,6 +16,8 @@ public class Tweet {
     private List<String> hashtags;
     private List<String> retweeters;
 
+    public Tweet(){}
+
     // Getters and Setters
     public String getTweetId() {
         return tweetId;
