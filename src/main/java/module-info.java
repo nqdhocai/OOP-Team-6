@@ -3,10 +3,13 @@ module app {
     requires javafx.fxml;
     requires gs.core;
     requires gs.ui.javafx;
+    requires com.fasterxml.jackson.databind;
 
-    opens app to javafx.fxml;
-    exports ui;
+    opens core to javafx.fxml;
+
     exports core;
-    exports models;
-    exports crawl;
+    exports ui;
+    exports controller;
+    opens controller to javafx.fxml;
+    exports model to com.fasterxml.jackson.databind;
 }
