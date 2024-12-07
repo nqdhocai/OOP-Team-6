@@ -5,9 +5,7 @@ import javafx.collections.ObservableList;
 import model.Nodes;
 import model.Tweet;
 import model.User;
-import model.UserRow;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 

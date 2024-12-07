@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.ButtonType;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import model.User;
 
@@ -39,27 +41,35 @@ public class UserDetailController {
         String imageUrl = user.getProfileImageUrl();  // Đường dẫn đến ảnh
 
         // URL ảnh mặc định khi xảy ra lỗi
-        String defaultImageUrl = String.valueOf(getClass().getResource("/assets/icon/account_icon.png"));
+        String defaultImageUrl = String.valueOf(getClass().getResource("/assets/icon/user_avt.png"));
+        Image userAvatar;
+        ImageView imageView;
 
         try {
-            // Cố gắng tải ảnh từ URL
-            Image image = new Image(imageUrl);
-
-            // Kiểm tra nếu ảnh hợp lệ
-            if (image.isError()) {
+            userAvatar = new Image(imageUrl);
+            if (userAvatar.isError()) {
                 throw new Exception("Error loading image from URL");
             }
-
-            // Nếu không có lỗi, sử dụng URL ảnh người dùng
-            userAvtImage.setStyle("-fx-background-radius: 50; -fx-border-radius: 50; " +
-                    "-fx-background-image: url('" + imageUrl + "'); " +
-                    "-fx-background-size: cover;");
         } catch (Exception e) {
-            // Nếu xảy ra lỗi, sử dụng ảnh mặc định
-            userAvtImage.setStyle("-fx-background-radius: 50; -fx-border-radius: 50; " +
-                    "-fx-background-image: url('" + defaultImageUrl + "'); " +
-                    "-fx-background-size: cover;");
+            userAvatar = new Image(defaultImageUrl);
         }
+
+        imageView = new ImageView(userAvatar);
+
+        // Tạo một Circle để cắt hình ảnh thành hình tròn
+        Circle clip = new Circle();
+        clip.setCenterX(50); // Vị trí tâm của Circle
+        clip.setCenterY(50); // Vị trí tâm của Circle
+        clip.setRadius(50);  // Bán kính của Circle
+
+        // Cài đặt Clip cho ImageView
+        imageView.setClip(clip);
+
+        imageView.setFitWidth(100);  // Chiều rộng của hình ảnh
+        imageView.setFitHeight(100); // Chiều cao của hình ảnh
+        imageView.setPreserveRatio(true);
+
+        userAvtImage.getChildren().add(imageView);
     }
 
     public void showUserDetail(User clickedUser) throws Exception {
@@ -68,6 +78,7 @@ public class UserDetailController {
         UserDetailController controller = loader.getController();
 
         controller.updateUserDetails(clickedUser);
+
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setDialogPane(dialogView);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);

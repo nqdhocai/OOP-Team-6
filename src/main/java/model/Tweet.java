@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Tweet {
+public class Tweet{
     private String tweetId;
     private String author;
     private String createdAt;
@@ -114,4 +114,5 @@ public class Tweet {
     public void setRetweeters(List<String> retweeters) {
         this.retweeters = retweeters;
     }
+
 }
