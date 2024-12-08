@@ -1,9 +1,9 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.Node;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 

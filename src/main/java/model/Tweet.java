@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Tweet{
+public class Tweet {
     private String tweetId;
     private String author;
     private String createdAt;
@@ -16,7 +16,8 @@ public class Tweet{
     private List<String> hashtags;
     private List<String> retweeters;
 
-    public Tweet(){}
+    public Tweet() {
+    }
 
     // Getters and Setters
     public String getTweetId() {

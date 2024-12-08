@@ -19,8 +19,8 @@ import java.util.List;
 
 public class DashboardController {
 
-    private DashboardDataController dashboardDataController = new DashboardDataController();
-    private UserDetailController userDetailController = new UserDetailController();
+    private final DashboardDataController dashboardDataController = new DashboardDataController();
+    private final UserDetailController userDetailController = new UserDetailController();
 
     @FXML
     private AnchorPane dashboardPane;

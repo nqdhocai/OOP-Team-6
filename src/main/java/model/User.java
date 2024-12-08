@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class User{
+public class User {
     private String userId;
     private String username;
     private String bio;
@@ -16,7 +16,7 @@ public class User{
     private List<String> tweets;
     private List<String> following;
 
-    public User(){
+    public User() {
     }
 
     // Getters and Setters

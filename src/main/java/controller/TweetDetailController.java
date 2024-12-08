@@ -12,9 +12,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import model.Nodes;
 import model.Tweet;
-import model.User;
-
-import java.util.List;
 
 public class TweetDetailController {
 
@@ -31,14 +28,12 @@ public class TweetDetailController {
     @FXML
     private Label uploadTimeLabel;
 
-    private Nodes nodes = new Nodes(String.valueOf(getClass().getResource("/data/raw_data.json").getPath()));
-
-    public void showTweetDetail(Tweet clickedTweet) throws Exception {
+    public void showTweetDetail(Tweet clickedTweet, Nodes nodes) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/tweet_detail_view.fxml"));
         DialogPane dialogView = loader.load();
         TweetDetailController controller = loader.getController();
 
-        controller.updateTweetDetails(clickedTweet);
+        controller.updateTweetDetails(clickedTweet, nodes);
 
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setDialogPane(dialogView);
@@ -46,7 +41,7 @@ public class TweetDetailController {
         dialog.showAndWait();
     }
 
-    private void updateTweetDetails(Tweet clickedTweet) {
+    private void updateTweetDetails(Tweet clickedTweet, Nodes nodes) {
         String author = nodes.getUser(clickedTweet.getAuthor()).getUsername();
         StringBuilder hashtags = new StringBuilder();
         for (String hashtag : clickedTweet.getHashtags()) {
@@ -54,7 +49,8 @@ public class TweetDetailController {
         }
         Image userAvatar = new Image(String.valueOf(getClass().getResource("/assets/icon/user_avt.png")));
 
-        ImageView imageView = new ImageView(userAvatar);;
+        ImageView imageView = new ImageView(userAvatar);
+        ;
 
         // Tạo một Circle để cắt hình ảnh thành hình tròn
         Circle clip = new Circle();
