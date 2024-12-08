@@ -1,7 +1,9 @@
 package controller;
 
+import core.DashboardDataController;
 import core.SearchDataController;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -15,10 +17,8 @@ import model.SearchResult;
 import model.Tweet;
 import model.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 public class SearchController {
     private final Map<String, Boolean> searchTypes = new HashMap<>();
@@ -82,10 +82,10 @@ public class SearchController {
                             setGraphic(null);
                         } else {
                             if (item.getType().equals("user")) {
-                                User user = searchDataController.getNodes().getUser(item.getId());
+                                User user = searchDataController.getNodesData().getUser(item.getId());
                                 setGraphic(createUserSearchResultCell(user));
                             } else {
-                                Tweet tweet = searchDataController.getNodes().getTweet(item.getId());
+                                Tweet tweet = searchDataController.getNodesData().getTweet(item.getId());
                                 setGraphic(createTweetSearchResultCell(tweet));
                             }
                         }
@@ -146,7 +146,7 @@ public class SearchController {
 
         hbox.setOnMouseClicked(event -> {
             try {
-                tweetDetailController.showTweetDetail(tweet, searchDataController.getNodes());
+                tweetDetailController.showTweetDetail(tweet);
             } catch (Exception e) {
                 e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);

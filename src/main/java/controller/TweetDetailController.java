@@ -28,12 +28,14 @@ public class TweetDetailController {
     @FXML
     private Label uploadTimeLabel;
 
-    public void showTweetDetail(Tweet clickedTweet, Nodes nodes) throws Exception {
+    private Nodes nodes = new Nodes(String.valueOf(getClass().getResource("/data/node_data.json").getPath()));
+
+    public void showTweetDetail(Tweet clickedTweet) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/tweet_detail_view.fxml"));
         DialogPane dialogView = loader.load();
         TweetDetailController controller = loader.getController();
 
-        controller.updateTweetDetails(clickedTweet, nodes);
+        controller.updateTweetDetails(clickedTweet);
 
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setDialogPane(dialogView);
@@ -41,16 +43,14 @@ public class TweetDetailController {
         dialog.showAndWait();
     }
 
-    private void updateTweetDetails(Tweet clickedTweet, Nodes nodes) {
-        String author = nodes.getUser(clickedTweet.getAuthor()).getUsername();
+    private void updateTweetDetails(Tweet clickedTweet) {
         StringBuilder hashtags = new StringBuilder();
         for (String hashtag : clickedTweet.getHashtags()) {
             hashtags.append(hashtag).append(" ");
         }
         Image userAvatar = new Image(String.valueOf(getClass().getResource("/assets/icon/user_avt.png")));
 
-        ImageView imageView = new ImageView(userAvatar);
-        ;
+        ImageView imageView = new ImageView(userAvatar);;
 
         // Tạo một Circle để cắt hình ảnh thành hình tròn
         Circle clip = new Circle();
@@ -66,8 +66,8 @@ public class TweetDetailController {
         imageView.setPreserveRatio(true);
 
         userAvt.getChildren().add(imageView);
-        userName.setText(author);
-        userID.setText(clickedTweet.getAuthor());
+        userName.setText(clickedTweet.getAuthor());
+        userID.setText("");
         hashtagsLabel.setText(hashtags.toString());
         contentLabel.setText(clickedTweet.getContent());
         uploadTimeLabel.setText(clickedTweet.getCreatedAt());

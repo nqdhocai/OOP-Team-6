@@ -7,7 +7,34 @@ import model.User;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SearchDataController extends DataController {
+public class SearchDataController {
+    private Nodes nodesData = new Nodes(String.valueOf(getClass().getResource("/data/node_data.json").getPath()));
+    private List<User> users = nodesData.getUsers();
+    private List<Tweet> tweets = nodesData.getTweets();
+
+    public Nodes getNodesData() {
+        return nodesData;
+    }
+
+    public void setNodesData(Nodes nodesData) {
+        this.nodesData = nodesData;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Tweet> getTweets() {
+        return tweets;
+    }
+
+    public void setTweets(List<Tweet> tweets) {
+        this.tweets = tweets;
+    }
 
     public List<Tweet> searchTweetByHashtags(String hashtags) {
         List<String> hashtagArray = List.of(hashtags.split("(?=#)"));
@@ -42,7 +69,7 @@ public class SearchDataController extends DataController {
     }
 
     public List<User> searchUser(String keyword) {
-        if (keyword.equals("")) {
+        if (keyword.equals("")){
             return users;
         }
         if (keyword.charAt(0) == '@') {
@@ -53,7 +80,7 @@ public class SearchDataController extends DataController {
     }
 
     public List<Tweet> searchTweet(String keyword) {
-        if (keyword.equals("")) {
+        if (keyword.equals("")){
             return tweets;
         }
         keyword = keyword.replaceFirst("^\\s+", "");

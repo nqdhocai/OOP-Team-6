@@ -2,22 +2,20 @@ package model;
 
 import java.util.List;
 
-public class Tweet {
+public class Tweet{
     private String tweetId;
     private String author;
     private String createdAt;
     private String content;
     private String tweetUrl;
-    private int likesCount;
-    private int retweetsCount;
-    private int repliesCount;
+    private String likesCount;
+    private String retweetsCount;
+    private String repliesCount;
     private double score;
-    private List<String> edges;
     private List<String> hashtags;
     private List<String> retweeters;
 
-    public Tweet() {
-    }
+    public Tweet(){}
 
     // Getters and Setters
     public String getTweetId() {
@@ -60,27 +58,27 @@ public class Tweet {
         this.tweetUrl = tweetUrl;
     }
 
-    public int getLikesCount() {
+    public String getLikesCount() {
         return likesCount;
     }
 
-    public void setLikesCount(int likesCount) {
+    public void setLikesCount(String likesCount) {
         this.likesCount = likesCount;
     }
 
-    public int getRetweetsCount() {
+    public String getRetweetsCount() {
         return retweetsCount;
     }
 
-    public void setRetweetsCount(int retweetsCount) {
+    public void setRetweetsCount(String retweetsCount) {
         this.retweetsCount = retweetsCount;
     }
 
-    public int getRepliesCount() {
+    public String getRepliesCount() {
         return repliesCount;
     }
 
-    public void setRepliesCount(int repliesCount) {
+    public void setRepliesCount(String repliesCount) {
         this.repliesCount = repliesCount;
     }
 
@@ -90,14 +88,6 @@ public class Tweet {
 
     public void setScore(double score) {
         this.score = score;
-    }
-
-    public List<String> getEdges() {
-        return edges;
-    }
-
-    public void setEdges(List<String> edges) {
-        this.edges = edges;
     }
 
     public List<String> getHashtags() {

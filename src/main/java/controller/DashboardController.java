@@ -1,9 +1,12 @@
 package controller;
 
 import core.DashboardDataController;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -11,7 +14,9 @@ import model.Tweet;
 import model.User;
 import org.graphstream.graph.implementations.MultiGraph;
 import org.graphstream.ui.fx_viewer.FxViewer;
+import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
+import org.graphstream.ui.view.camera.Camera;
 
 import java.util.Comparator;
 import java.util.List;
@@ -19,8 +24,8 @@ import java.util.List;
 
 public class DashboardController {
 
-    private final DashboardDataController dashboardDataController = new DashboardDataController();
-    private final UserDetailController userDetailController = new UserDetailController();
+    private DashboardDataController dashboardDataController = new DashboardDataController();
+    private UserDetailController userDetailController = new UserDetailController();
 
     @FXML
     private AnchorPane dashboardPane;
@@ -77,6 +82,20 @@ public class DashboardController {
         // Tạo cột Score
         TableColumn<User, Double> scoreColumn = new TableColumn<>("Score");
         scoreColumn.setCellValueFactory(cellData -> new SimpleDoubleProperty(cellData.getValue().getScore()).asObject());
+        scoreColumn.setCellFactory(column -> {
+            return new TableCell<User, Double>() {
+                @Override
+                protected void updateItem(Double item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null) {
+                        setText(null);
+                    } else {
+                        // Chuyển đổi giá trị thành chuỗi với 2 chữ số sau dấu phẩy
+                        setText(String.format("%.2f", item));
+                    }
+                }
+            };
+        });
         scoreColumn.setStyle("-fx-alignment: CENTER;");
         scoreColumn.setComparator(Comparator.naturalOrder());
         scoreColumn.setPrefWidth(75);
@@ -107,7 +126,7 @@ public class DashboardController {
 
         // Thêm dữ liệu
         tableView.setItems(dashboardDataController.getUserRows());
-
+        userRankingPane.getChildren().clear();
         userRankingPane.getChildren().add(tableView);
     }
 
@@ -122,7 +141,7 @@ public class DashboardController {
         List<Tweet> tweets = dashboardDataController.getTweets();
 
         for (User user : users) {
-            String nodeStyles = "size: "+( user.getScore() * 5) +"px; fill-color: #444;";
+            String nodeStyles = "size: "+( user.getScore() * 100) +"px; fill-color: #444;";
 
             totalGraph.addNode(user.getUserId()).setAttribute("ui.label", user.getUsername());
             userGraph.addNode(user.getUserId()).setAttribute("ui.label", user.getUsername());
@@ -132,8 +151,12 @@ public class DashboardController {
         }
 
         for (Tweet tweet : tweets) {
-            totalGraph.addNode(tweet.getTweetId());
-            tweetGraph.addNode(tweet.getTweetId());
+            String nodeStyles = "fill-color: #B1F0F7;";
+
+            totalGraph.addNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
+
+            tweetGraph.addNode(tweet.getTweetId()).setAttribute("ui.label", tweet.getAuthor());
+            tweetGraph.getNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
         }
 
         for (User user : users) {
@@ -141,16 +164,32 @@ public class DashboardController {
             List<String> followings = user.getFollowing();
 
             for (String userTweet : userTweets) {
+                String nodeStyles = "fill-color: #B1F0F7;";
                 String edgeId = user.getUserId() + userTweet;
 
-                totalGraph.addEdge(edgeId, user.getUserId(), userTweet);
+                try{
+                    totalGraph.addEdge(edgeId, user.getUserId(), userTweet);
+                } catch (Exception ElementNotFoundException) {
+                    totalGraph.addNode(userTweet).setAttribute("ui.style", nodeStyles);
+                    totalGraph.addEdge(edgeId, user.getUserId(), userTweet);
+                }
+
             }
 
             for (String following : followings) {
                 String edgeId = user.getUserId() + following;
+                String nodeStyles = "fill-color: #444;";
+                try {
+                    totalGraph.addEdge(edgeId, user.getUserId(), following);
+                    userGraph.addEdge(edgeId, user.getUserId(), following);
+                } catch (Exception ElementNotFoundException) {
+                    userGraph.addNode(following).setAttribute("ui.style", nodeStyles);
+                    userGraph.addEdge(edgeId, user.getUserId(), following);
 
-                totalGraph.addEdge(edgeId, user.getUserId(), following);
-                userGraph.addEdge(edgeId, user.getUserId(), following);
+                    totalGraph.addNode(following).setAttribute("ui.style", nodeStyles);
+                    totalGraph.addEdge(edgeId, user.getUserId(), following);
+                }
+
             }
         }
 
@@ -164,20 +203,65 @@ public class DashboardController {
             default:
                 graph = totalGraph;
         }
-
+        String cssStyle = "graph {fill-color: #EEEEEE;} node {text-alignment: under;}";
+        graph.setAttribute("ui.stylesheet", cssStyle);
+        graph.setAttribute("ui.quality");
+        graph.setAttribute("ui.antialias");
         // Create GraphStream JavaFX viewer
         Viewer viewer = new FxViewer(graph, FxViewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD);
         viewer.enableAutoLayout(); // Enable auto layout
 
         // Add default view
-        Node graphView = (Node) viewer.addDefaultView(false);
+        View graphView = viewer.addDefaultView(false);
 
-        graphView.setStyle("-fx-pref-width: 550px; -fx-pref-height: 430px; -fx-background-color: #EEE");
+        ((Node) graphView).setStyle("-fx-pref-width: 540px; -fx-pref-height: 420px;");
 
         ScrollPane graphPane = new ScrollPane();
-        graphPane.setContent(graphView);
+        graphPane.setPrefWidth(550);
+        graphPane.setPrefHeight(430);
+
+        graphPane.setContent((Node) graphView);
 
         graphViewPane.getChildren().add(graphPane);
+        graphPane.setOnScroll(event -> {
+            double zoomFactor = 1.1; // Hệ số zoom
+            if (event.getDeltaY() > 0) {
+                graphView.getCamera().setViewPercent(graphView.getCamera().getViewPercent() / zoomFactor);
+            } else {
+                graphView.getCamera().setViewPercent(graphView.getCamera().getViewPercent() * zoomFactor);
+            }
+            event.consume();
+        });
+
+        final ObjectProperty<Point2D> lastMousePosition = new SimpleObjectProperty<>();
+        ((Node) graphView).setOnMousePressed(event -> {
+            lastMousePosition.set(new Point2D(event.getSceneX(), event.getSceneY()));
+        });
+
+        ((Node) graphView).setOnMouseDragged(event -> {
+            Camera camera = graphView.getCamera();
+            final double DRAG_SENSITIVITY = 0.05 / camera.getViewPercent();
+            if (lastMousePosition.get() != null) {
+                double deltaX = event.getSceneX() - lastMousePosition.get().getX();
+                double deltaY = event.getSceneY() - lastMousePosition.get().getY();
+
+                // Áp dụng hệ số giảm độ dịch chuyển
+                deltaX *= DRAG_SENSITIVITY;
+                deltaY *= DRAG_SENSITIVITY;
+
+                camera.setViewCenter(
+                        camera.getViewCenter().x - deltaX * camera.getViewPercent(),
+                        camera.getViewCenter().y + deltaY * camera.getViewPercent(),
+                        camera.getViewCenter().z
+                );
+
+                lastMousePosition.set(new Point2D(event.getSceneX(), event.getSceneY()));
+            }
+        });
+
+        ((Node) graphView).setOnMouseReleased(event -> {
+            lastMousePosition.set(null);
+        });
     }
 
 }
