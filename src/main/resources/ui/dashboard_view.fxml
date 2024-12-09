@@ -2,16 +2,18 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="dashboardPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
-      <VBox id="page-view" prefHeight="500.0" prefWidth="650.0" BorderPane.alignment="CENTER">
+<AnchorPane fx:id="dashboardPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardController">
+      <VBox id="page-view" prefHeight="600.0" prefWidth="850.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane id="view-title" prefHeight="50.0" prefWidth="500.0">
+            <AnchorPane id="view-title" prefHeight="50.0" prefWidth="850.0">
                <children>
                   <Label alignment="CENTER" layoutY="1.0" prefHeight="50.0" prefWidth="120.0" text="Dashboard">
                      <font>
@@ -20,11 +22,11 @@
                   </Label>
                </children>
             </AnchorPane>
-            <HBox prefHeight="450.0" prefWidth="500.0">
+            <HBox prefHeight="700.0" prefWidth="850.0">
                <children>
-                  <VBox prefHeight="350.0" prefWidth="700.0">
+                  <VBox prefHeight="444.0" prefWidth="850.0">
                      <children>
-                        <HBox prefHeight="60.0" prefWidth="500.0" style="-fx-alignment: center;">
+                        <HBox prefHeight="60.0" prefWidth="850.0" style="-fx-alignment: center;">
                            <children>
                               <VBox id="total-container" prefHeight="200.0" prefWidth="100.0">
                                  <children>
@@ -54,14 +56,49 @@
                            <Insets bottom="5.0" />
                         </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="400.0" prefWidth="500.0">
+                        <HBox prefHeight="570.0" prefWidth="850.0">
                            <children>
-                           <AnchorPane id="user-list" prefHeight="300.0" prefWidth="250.0" fx:id="userRankingPane" />
-                              <AnchorPane id="graph-pane" prefHeight="300.0" prefWidth="400.0" fx:id="graphViewPane">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </AnchorPane>
+                           <VBox prefHeight="200.0" prefWidth="300.0">
+                              <children>
+                                 <Label prefHeight="50.0" prefWidth="300.0" text="User Ranking Table">
+                                    <font>
+                                       <Font name="System Bold" size="14.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Label>
+                                 <AnchorPane id="user-list" fx:id="userRankingPane" prefHeight="430.0" prefWidth="300.0" />
+                              </children>
+                           </VBox>
+                           <VBox prefHeight="500.0" prefWidth="550.0">
+                              <children>
+                                 <HBox prefHeight="50.0" prefWidth="400.0">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="323.0" text="Tweeter Entities Graph View">
+                                          <font>
+                                             <Font name="System Bold" size="14.0" />
+                                          </font>
+                                          <HBox.margin>
+                                             <Insets left="5.0" />
+                                          </HBox.margin>
+                                       </Label>
+                                       <AnchorPane prefHeight="51.0" prefWidth="274.0">
+                                          <children>
+                                             <MenuButton layoutX="209.0" layoutY="8.0" mnemonicParsing="false" prefHeight="35.0" style="-fx-background-color: #EEE;" text="Filter">
+                                               <items>
+                                                 <MenuItem mnemonicParsing="false" onAction="#showAllNode" text="All Entity" />
+                                                 <MenuItem mnemonicParsing="false" onAction="#showUser" text="Only User" />
+                                                   <MenuItem mnemonicParsing="false" onAction="#showTweet" text="Only Tweet" />
+                                               </items>
+                                             </MenuButton>
+                                          </children>
+                                       </AnchorPane>
+                                    </children>
+                                 </HBox>
+                                    <AnchorPane id="graph-pane" fx:id="graphViewPane" prefHeight="430.0" prefWidth="400.0" />
+                              </children>
+                           </VBox>
                            </children>
                            <VBox.margin>
                               <Insets top="10.0" />

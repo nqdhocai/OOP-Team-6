@@ -5,14 +5,12 @@ import javafx.collections.ObservableList;
 import model.Nodes;
 import model.Tweet;
 import model.User;
-import model.UserRow;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class DashboardDataController {
-    private final String dataPath = String.valueOf(getClass().getResource("/data/raw_data.json").getPath());
+    private final String dataPath = String.valueOf(getClass().getResource("/data/node_data.json").getPath());
 
     final private Nodes data = new Nodes(dataPath);
     final private List<User> users = data.getUsers();

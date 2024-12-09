@@ -49,4 +49,22 @@ public class Nodes {
             return null;
         }
     }
+
+    public User getUser(String id) {
+        for (User user : users) {
+            if (user.getUserId().equals(id)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public Tweet getTweet(String id) {
+        for (Tweet tweet : tweets) {
+            if (tweet.getTweetId().equals(id)) {
+                return tweet;
+            }
+        }
+        return null;
+    }
 }

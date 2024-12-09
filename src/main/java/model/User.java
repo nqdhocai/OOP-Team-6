@@ -2,9 +2,9 @@ package model;
 
 import java.util.List;
 
-public class User {
+public class User{
     private String userId;
-    private String username;
+    private String userName;
     private String bio;
     private String profileUrl;
     private String profileImageUrl;
@@ -12,11 +12,11 @@ public class User {
     private String followingCount;
     private int tweetCount;
     private double score;
-    private List<String> edges;
     private List<String> tweets;
     private List<String> following;
 
-    public User(){}
+    public User(){
+    }
 
     // Getters and Setters
     public String getUserId() {
@@ -28,11 +28,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getBio() {
@@ -89,14 +89,6 @@ public class User {
 
     public void setScore(double score) {
         this.score = score;
-    }
-
-    public List<String> getEdges() {
-        return edges;
-    }
-
-    public void setEdges(List<String> edges) {
-        this.edges = edges;
     }
 
     public List<String> getTweets() {

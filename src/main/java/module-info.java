@@ -4,6 +4,7 @@ module app {
     requires gs.core;
     requires gs.ui.javafx;
     requires com.fasterxml.jackson.databind;
+    requires org.json;
 
     opens core to javafx.fxml;
 
