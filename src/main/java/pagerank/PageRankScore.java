@@ -169,7 +169,7 @@ public class PageRankScore {
             if (diff < TOLERANCE) break;
         }
         ranks = normalizeScores(ranks);
-        System.out.println(ranks);
+        //System.out.println(ranks);
         return ranks;
     }
     private static Map<String, Double> normalizeScores(Map<String, Double> scores) {

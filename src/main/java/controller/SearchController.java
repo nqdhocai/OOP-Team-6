@@ -1,9 +1,7 @@
 package controller;
 
-import core.DashboardDataController;
 import core.SearchDataController;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -21,10 +19,10 @@ import model.User;
 import java.util.*;
 
 public class SearchController {
-    private final Map<String, Boolean> searchTypes = new HashMap<>();
-    private final SearchDataController searchDataController = new SearchDataController();
-    private final UserDetailController userDetailController = new UserDetailController();
-    private final TweetDetailController tweetDetailController = new TweetDetailController();
+    private final Map<String, Boolean> SEARCH_TYPE = new HashMap<>();
+    private final SearchDataController SEARCH_DATA_CONTROLLER = new SearchDataController();
+    private final UserDetailController USER_DETAIL_CONTROLLER = new UserDetailController();
+    private final TweetDetailController TWEET_DETAIL_CONTROLLER = new TweetDetailController();
     @FXML
     private TextField searchTextField;
 
@@ -33,8 +31,8 @@ public class SearchController {
 
     @FXML
     public void initialize() {
-        searchTypes.put("user", true);
-        searchTypes.put("tweet", true);
+        SEARCH_TYPE.put("user", true);
+        SEARCH_TYPE.put("tweet", true);
         updateSearchResultView();
     }
 
@@ -48,8 +46,8 @@ public class SearchController {
 
         List<SearchResult> searchResults = new ArrayList<>();
 
-        if (searchTypes.get("user")) {
-            List<User> userResults = searchDataController.searchUser(keyword);
+        if (SEARCH_TYPE.get("user")) {
+            List<User> userResults = SEARCH_DATA_CONTROLLER.searchUser(keyword);
             if (userResults != null) {
                 for (User user : userResults) {
                     searchResults.add(
@@ -58,8 +56,8 @@ public class SearchController {
                 }
             }
         }
-        if (searchTypes.get("tweet")) {
-            List<Tweet> tweetResults = searchDataController.searchTweet(keyword);
+        if (SEARCH_TYPE.get("tweet")) {
+            List<Tweet> tweetResults = SEARCH_DATA_CONTROLLER.searchTweet(keyword);
             if (tweetResults != null) {
                 for (Tweet tweet : tweetResults) {
                     searchResults.add(
@@ -82,10 +80,10 @@ public class SearchController {
                             setGraphic(null);
                         } else {
                             if (item.getType().equals("user")) {
-                                User user = searchDataController.getNodesData().getUser(item.getId());
+                                User user = SEARCH_DATA_CONTROLLER.getNodesData().getUser(item.getId());
                                 setGraphic(createUserSearchResultCell(user));
                             } else {
-                                Tweet tweet = searchDataController.getNodesData().getTweet(item.getId());
+                                Tweet tweet = SEARCH_DATA_CONTROLLER.getNodesData().getTweet(item.getId());
                                 setGraphic(createTweetSearchResultCell(tweet));
                             }
                         }
@@ -113,7 +111,7 @@ public class SearchController {
 
         hbox.setOnMouseClicked(event -> {
             try {
-                userDetailController.showUserDetail(user);
+                USER_DETAIL_CONTROLLER.showUserDetail(user);
             } catch (Exception e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("User Information");
@@ -146,7 +144,7 @@ public class SearchController {
 
         hbox.setOnMouseClicked(event -> {
             try {
-                tweetDetailController.showTweetDetail(tweet);
+                TWEET_DETAIL_CONTROLLER.showTweetDetail(tweet);
             } catch (Exception e) {
                 e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -175,14 +173,14 @@ public class SearchController {
         CheckBox userCheckBox = new CheckBox("User");
         CheckBox tweetCheckBox = new CheckBox("Tweet");
 
-        userCheckBox.setSelected(searchTypes.get("user"));
-        tweetCheckBox.setSelected(searchTypes.get("tweet"));
+        userCheckBox.setSelected(SEARCH_TYPE.get("user"));
+        tweetCheckBox.setSelected(SEARCH_TYPE.get("tweet"));
 
         // Tạo nút "OK" để áp dụng lựa chọn
         Button okButton = new Button("OK");
         okButton.setOnAction(e -> {
-            searchTypes.put("user", userCheckBox.isSelected());
-            searchTypes.put("tweet", tweetCheckBox.isSelected());
+            SEARCH_TYPE.put("user", userCheckBox.isSelected());
+            SEARCH_TYPE.put("tweet", tweetCheckBox.isSelected());
             filterStage.close();
         });
 

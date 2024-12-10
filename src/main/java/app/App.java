@@ -19,7 +19,7 @@ public class App extends Application {
         Scene scene = new Scene(loader.load());
 
         primaryStage.setResizable(false);
-        primaryStage.setTitle("JavaFX Navbar Example");
+        primaryStage.setTitle("X Blockchain KOL");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
