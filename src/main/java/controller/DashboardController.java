@@ -142,6 +142,8 @@ public class DashboardController {
         List<User> users = dashboardDataController.getUsers();
         List<Tweet> tweets = dashboardDataController.getTweets();
 
+        if (users.size() > 50){ users = users.subList(0, 50);}
+
         for (User user : users) {
             String nodeStyles = "size: " + (user.getScore()) + "px; fill-color: #444;";
 
@@ -153,30 +155,34 @@ public class DashboardController {
         }
 
         for (Tweet tweet : tweets) {
+            String author = tweet.getAuthor();
             String nodeStyles = "fill-color: #B1F0F7;";
 
-            totalGraph.addNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
-
-            tweetGraph.addNode(tweet.getTweetId()).setAttribute("ui.label", tweet.getAuthor());
-            tweetGraph.getNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
+            if (totalGraph.getNodeCount() < 500) {
+                try {
+                    totalGraph.addNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
+                    totalGraph.addEdge(tweet.getTweetId() + author, tweet.getTweetId(), author);
+                } catch (Exception ElementNotFound) {
+                    try {
+                        totalGraph.addNode(author);
+                        totalGraph.addEdge(tweet.getTweetId() + author, tweet.getTweetId(), author);
+                    } catch (Exception ElementAlreadyExists) {
+                        totalGraph.addEdge(tweet.getTweetId() + author, tweet.getTweetId(), author);
+                    }
+                }
+            }
+            if (tweetGraph.getNodeCount() < 500){
+                try {
+                    tweetGraph.addNode(tweet.getTweetId()).setAttribute("ui.label", tweet.getAuthor());
+                    tweetGraph.getNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
+                } catch (Exception e) {
+                    tweetGraph.getNode(tweet.getTweetId()).setAttribute("ui.style", nodeStyles);
+                }
+            }
         }
 
         for (User user : users) {
-            List<String> userTweets = user.getTweets();
             List<String> followings = user.getFollowing();
-
-            for (String userTweet : userTweets) {
-                String nodeStyles = "fill-color: #B1F0F7;";
-                String edgeId = user.getUserId() + userTweet;
-
-                try {
-                    totalGraph.addEdge(edgeId, user.getUserId(), userTweet);
-                } catch (Exception ElementNotFoundException) {
-                    totalGraph.addNode(userTweet).setAttribute("ui.style", nodeStyles);
-                    totalGraph.addEdge(edgeId, user.getUserId(), userTweet);
-                }
-
-            }
 
             for (String following : followings) {
                 String edgeId = user.getUserId() + following;
