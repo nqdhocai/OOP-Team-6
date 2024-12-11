@@ -17,6 +17,10 @@ public class Tweet{
 
     public Tweet(){}
 
+    public Tweet(String tweetId) {
+        this.tweetId = tweetId;
+    }
+
     public Tweet(String tweetId, String author, String createdAt, String content, String tweetUrl, String likesCount, String retweetsCount, String repliesCount, double score, List<String> hashtags, List<String> retweeters) {
         this.tweetId = tweetId;
         this.author = author;

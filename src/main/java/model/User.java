@@ -18,6 +18,10 @@ public class User {
     public User() {
     }
 
+    public User(String userId) {
+        this.userId = userId;
+    }
+
     public User(String userId, String userName, String bio, String profileUrl, String profileImageUrl, String followersCount, String followingCount, int tweetCount, double score, List<String> tweets, List<String> following) {
         this.userId = userId;
         this.userName = userName;
