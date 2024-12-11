@@ -12,7 +12,7 @@ import java.util.List;
 public class DashboardDataController extends DataController {
 
     public DashboardDataController() {
-        if (!users.isEmpty()) {
+        if (users != null) {
         users.sort(Comparator.comparingDouble(User::getScore).reversed());
         }
     }

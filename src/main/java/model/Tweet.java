@@ -15,9 +15,20 @@ public class Tweet{
     private List<String> hashtags;
     private List<String> retweeters;
 
-    public Tweet() {}
-    public Tweet(String tweetUrl) {
+    public Tweet(){}
+
+    public Tweet(String tweetId, String author, String createdAt, String content, String tweetUrl, String likesCount, String retweetsCount, String repliesCount, double score, List<String> hashtags, List<String> retweeters) {
+        this.tweetId = tweetId;
+        this.author = author;
+        this.createdAt = createdAt;
+        this.content = content;
         this.tweetUrl = tweetUrl;
+        this.likesCount = likesCount;
+        this.retweetsCount = retweetsCount;
+        this.repliesCount = repliesCount;
+        this.score = score;
+        this.hashtags = hashtags;
+        this.retweeters = retweeters;
     }
 
     // Getters and Setters
