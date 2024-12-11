@@ -1,0 +1,46 @@
+/* TableView nền chung */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 1px;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Arial';
+}
+
+/* Cột tiêu đề */
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 0 0 1px 0;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Các hàng */
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #55aded; /* Màu khi chọn */
+    -fx-text-fill: #ffffff;
+}
+
+/* Ô */
+.table-view .cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 8;
+    -fx-border-color: #f0f0f0;
+}
+
+/* Cuộn */
+.scroll-bar {
+    -fx-background-color: #f5f5f5;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px;
+}

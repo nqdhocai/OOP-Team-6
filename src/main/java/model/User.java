@@ -18,6 +18,10 @@ public class User{
     public User(){
     }
 
+    public User(String userId) {
+        this.userId = userId;
+    }
+
     // Getters and Setters
     public String getUserId() {
         return userId;

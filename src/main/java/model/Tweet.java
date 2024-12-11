@@ -15,7 +15,10 @@ public class Tweet{
     private List<String> hashtags;
     private List<String> retweeters;
 
-    public Tweet(){}
+    public Tweet() {}
+    public Tweet(String tweetUrl) {
+        this.tweetUrl = tweetUrl;
+    }
 
     // Getters and Setters
     public String getTweetId() {
